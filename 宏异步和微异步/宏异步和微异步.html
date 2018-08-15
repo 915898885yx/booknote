@@ -4,7 +4,7 @@
 	<title>深入理解JavaScript的执行机制（同步和异步-宏异步和微异步</title>
 </head>
 <body>
-- macro-task(宏任务)：包括整体代码script，setTimeout，setInterval 
+- macro-task(宏任务)：包括整体代码script，setTimeout（最短4ms），setInterval（最短10ms） 
 - micro-task(微任务)：Promise，process.nextTick
 在程序中如果出现异步，首先执行微异步，在执行宏异步，
 异步出现时，先将进程进入event queue(时间队列)，先执行主进程，当主进程执行完，在执行异步进程。
