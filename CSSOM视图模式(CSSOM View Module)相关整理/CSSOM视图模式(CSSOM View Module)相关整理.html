@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jsBOM-DOM知识点</title>
+</head>
+<body>
+一、window视图属性
+	window.innerWidth
+	window.innerHeight
+	表示获取window窗体的内部宽度，不包括用户界面元素，比如窗框。
+	------
+	window.outerWidth
+	window.outerHeight
+	表示整个浏览器窗体的大小，包括任务栏等。
+	------
+	window.pageXOffset
+	window.pageYOffset
+	表示整个页面滚动的像素值（水平方向的和垂直方向的）
+	------
+	window.screenX
+	window.screenY
+	浏览器窗口在显示器中的位置，screenX表示水平位置，screenY表示垂直位置
+
+二、Screen视图属性：指能hold住显示器信息的些属性
+	screen.availWidth
+	screen.availHeight
+	显示器可用宽高，不包括任务栏之类的东东
+	------
+	screen.colorDepth
+	表示显示器的颜色深度
+	------
+	screen.width
+	screen.height(在IE9的IE7模式下，计算了显示器任务栏的高度)
+	表示显示器屏幕的宽高
+
+三、文档视图(DocumentView)和元素视图(ElementView)方法
+	document.elementFromPoint(100,100)
+	返回给定坐标处所在的元素
+	------
+	getBoundingClientRect()
+	得到矩形元素的界线，返回的是一个对象，包含 top, left, right, 和 bottom四个属性值，大小都是相对于文档视图左上角计算而来（demo：https://www.zhangxinxu.com/study/201109/get-bounding-client-rect.html）
+	------
+	element.scrollIntoView()
+	让元素滚动到可视区域（不属于草案方法）（demo:https://www.zhangxinxu.com/study/201109/scroll-into-view.html）
+四、元素视图属性
+	clientLeft和clientTop
+	表示内容区域的左上角相对于整个元素左上角的位置（包括边框）
+	------
+	clientWidth和clientHeight
+	表示内容区域的高度和宽度，包括padding大小，但是不包括边框和滚动条。
+	------
+	offsetLeft和offsetTop
+	表示相对于最近的祖先定位元素（CSS position 属性被设置为 relative、absolute 或 fixed 的元素）的左右偏移值。
+	------
+	offsetParent
+	第一个祖定位元素（即用来计算上面的offsetLeft和offsetTop的元素）
+	------
+	offsetWidth和offsetHeight
+	整个元素的尺寸（包括边框)
+	------
+	scrollLeft和scrollTop
+	表示元素滚动的像素大小
+	------
+	scrollWidth和scrollHeight
+	表示整个内容区域的宽高，包括隐藏的部分
+五、鼠标位置(Mouse position)
+	event.clientX
+	event.clientY
+	相对于window，为鼠标相对于window的偏移
+	------
+	event.offsetX
+	event.offsetY
+	表示鼠标相对于当前被点击元素padding box的左上偏移值
+	------
+	event.pageX
+	event.pageY
+	为鼠标相对于document的坐标。IE6~IE8浏览器是不支持的
+	------
+	event.screenX
+	event.screenY
+	鼠标相对于显示器屏幕的偏移坐标
+</body>
+</html>
