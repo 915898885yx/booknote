@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>this的四种用法</title>
+</head>
+<body>
+<script type="text/javascript">
+// 1.在一般函数方法中使用this指代全局对象
+function test () {
+  this.x = 1
+  console.log(this.x, x) // this指向window
+}
+test()
+
+// 2作为对象方法调用，this指代上级对象
+function test(){
+　　alert(this.x);
+}
+var o = {};
+o.x = 1;
+o.m = test;
+o.m(); // 1
+
+// 3.作为构造函数调用，this指代new出的对象
+function test(){
+　　this.x = 1;
+}
+var o = new test();
+alert(o.x); // 1 //运行结果为1。为了表明这时this不是全局对象，我对代码做一些改变：
+var x = 2;
+function test(){
+　　this.x = 1;
+}
+var o = new test();
+alert(x); //2
+
+// 4.apply 调用 ，apply方法作用是改变函数的调用对象，此方法的第一个参数为改变后调用这个函数的对象，this指代第一个参数
+var x = 0;
+    function test(){
+　　　　alert(this.x);
+　　}
+　　var o={};
+　　o.x = 1;
+　　o.m = test;
+　　o.m.apply(); //0 //apply()的参数为空时，默认调用全局对象。因此，这时的运行结果为0，证明this指的是全局对象。如果把最后一行代码修改为
+　　o.m.apply(o); //1
+</script>
+</body>
+</html>
