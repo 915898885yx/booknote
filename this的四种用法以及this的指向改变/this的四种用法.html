@@ -44,6 +44,8 @@ var x = 0;
 　　o.m = test;
 　　o.m.apply(); //0 //apply()的参数为空时，默认调用全局对象。因此，这时的运行结果为0，证明this指的是全局对象。如果把最后一行代码修改为
 　　o.m.apply(o); //1
+
+// 5.在setInterval、setTimeout中，this永远指向顶级对象除非使用apply、call、bind改变this指向
 </script>
 </body>
 </html>
