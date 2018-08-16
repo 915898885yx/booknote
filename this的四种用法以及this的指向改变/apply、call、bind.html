@@ -8,6 +8,30 @@
 2.如果使用apply或者call方法，那么this指向他们的第一个参数
 	--apply第二个参数时参数数组
 	--call的第二个以及以后的参数都是数组里面的元素，要全部检举出来
+3.常用用法
+  (1)数组之间的追加。
+  (2) var numbers = [5, 458, 120, -215]
+      var maxInNumbers = Math.max.apply(Math, numbers)
+      var maxInNUmbers = Math.max.call(Math, 5, 458, 120, -215)
+4.验证是都是数组(前提是toString()方法没有被重写过)
+  function isArray (obj) {
+    return Object.prototype.toString.call(obj) === '[object Array]'
+  }
+5.让类数组拥有数组的方法
+  比如：arguments对象，获取到的文档节点等，并没有数组的那些方法。
+  Array.prototype.slice.apply(argument)
+bind: --也是改变函数体内this的指向；
+  bind会创建一个新函数。成为绑定函数。当调用这个绑定函数的时候，绑定函数会以创建时传入bind方法的第一个对象作为this，第二个以及以后的参数加上绑定运行时本身的参数按照顺序作为原函数的参数来调用原函数。
+---------------------------
+bind与apply、call最大的区别在于。bind会立即调用，而apply、call不会立即调用。如果多次调用bind，那么多出来的无效。
+
+
+<br>*****三个的使用区别：
+都是用来改变函数的this对象的指向的；
+第一个参数都是this要指向的对象；
+都可以利用后续参数传参；
+bind是返回对应函数，便于稍后调用，apply、call是立即调用；
+
 
 
 	https://www.cnblogs.com/chaoyuehedy/p/7905511.html
