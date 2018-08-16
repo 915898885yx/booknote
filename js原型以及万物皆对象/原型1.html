@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>原型1-一切皆对象</title>
+</head>
+<body>
+<script type="text/javascript">
+// 1.typeof函数一共以下几种类型
+
+// 一共六大类型
+// undefined、number、string、boolean、function、object
+function show(x) {
+
+    console.log(typeof x);    // undefined
+    console.log(typeof 10);   // number
+    console.log(typeof 'abc'); // string
+    console.log(typeof true);  // boolean
+
+    console.log(typeof function () {});  //function
+
+    console.log(typeof [1, 'a', true]);  //object
+    console.log(typeof { a: 10, b: 20 });  //object
+    console.log(typeof null);  //object
+    console.log(typeof new Number(10));  //object
+}
+show();
+var str = '111'
+var str1 = String('111')
+var str2 = new String('111')
+console.log(str === str2)
+</script>
+
+</body>
+</html>
