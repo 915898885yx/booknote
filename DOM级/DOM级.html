@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM级事件处理</title>
+</head>
+<body>
+url: 'https://www.cnblogs.com/holyson/p/3914406.html'
+一、0级DOM
+	分为两个：1.在标签内写onclick事件
+			 2.在js写onclick = function () {}
+二、1级DOM
+三、2级DOM
+	只有一个： 监听方法，有两个方法来添加和移除事件
+				addEventListener、removeEventListener
+			他们都有三个参数，第一个参数是事件名，第二个参数是事件处理程序函数、第三个参数如果为true，则表示在捕获阶段调用，为false在冒泡阶段调用。
+	(1)addEventListener:可以为元素添加多个事件处理程序，触发是按照顺序依此调用。
+	(2)removeEventListener:不能移除匿名添加的函数
+	(3)只有二级DOM才有3个事件，事件捕获阶段，处于目标阶段、事件冒泡阶段
+	1.事件冒泡（常用）
+	在IE中采用的事件流是事件冒泡，先从具体的接收元素，然后向上翻到不具体的元素。
+	2.事件捕获（少用）
+	Netscapte采用事件捕获，先由不具体的元素接收事件，最具体的节点最后才接收到事件。
+	3.DOM事件流，先事件捕获，到目标阶段，再到事件冒泡。
+</body>
+</html>
