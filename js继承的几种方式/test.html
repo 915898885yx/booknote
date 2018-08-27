@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	function A () {
+		this.a = {b: 1}
+	}
+	function B () {}
+	B.prototype = new A()
+	var c = new B()
+	var c2 = new B()
+	console.log(c.a.b)
+	console.log(c2.a.b)
+	c.a.b = 2
+	console.log(c2.a.b)
+
+	console.error('********************')
+
+	function C () {
+		A.call(this)
+	}
+	var d = new C()
+	var e = new C()
+	console.log(d)
+	console.log(d.a.b)
+	console.log(e.a.b)
+	d.a.b = 3;
+	console.log(e.a.b)
+</script>
+</body>
+</html>

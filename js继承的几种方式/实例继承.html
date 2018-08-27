@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>实例继承-为父类实例添加新特性，作为子类实例返回</title>
+</head>
+<body>
+<script type="text/javascript">
+function Animal (name) {
+  this.name = name || 'Animal'
+  this.sleep = function () {
+    console.log(this.name + ' sleeping')
+  }
+}
+Animal.prototype.eat = function (food) {
+  console.log(this.name + ' eating ' + food)
+}
+
+function Cat(name) {
+ var instance = new Animal();
+ instance.name = name || 'Tom'
+ return instance
+}
+var cat = new Cat()
+console.log(cat.name)
+console.log(cat.sleep())
+console.log(cat instanceof Animal) // true
+console.log(cat instanceof Cat) // false
+</script>
+</body>
+</html>
