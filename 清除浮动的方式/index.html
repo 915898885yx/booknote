@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>清除浮动的方式</title>
+</head>
+<body>
+1.overflow:hidden;
+一般不使用，子元素发生浮动，父元素使用overflow：hidden会清除浮动，但是离开元素超出的部分会隐藏。
+2.额外标签
+.clear{
+	clear:both;
+}
+在浮动盒子下方放一个标签。在标签中使用该类清除浮动的影响。
+写在内部，撑开盒子
+写在外部可以清除浮动，不会撑开盒子，但是会影响标签混乱。
+3.使用伪类实现
+.clearfix:after{
+　　content:"";//设置内容为空
+
+　　height:0;//高度为0
+
+　　line-height:0;//行高为0
+
+　　display:block;//将文本转为块级元素
+
+　　visibility:hidden;//将元素隐藏
+
+　　clear:both//清除浮动
+}
+.clearfix{
+	zoom: 1 // 兼容IE
+}
+4.使用双伪类清除浮动
+.clearfix:before, .clear:after{
+	content: '',
+	display: block;
+	clear:both;
+}
+.clear{
+	zoom: 1
+}
+
+　总结:第一种方法会将超出部分隐藏在某些时候我们想清除浮动并且保留超出部分时做不到,第二种方法会增加许多不必要的标签,
+
+　　　　　　所以我们尽量使用第三种方法来清除浮动,为什么不选择第四种方法呢?因为第四种是第三种的改良版虽然比较简便,但是不严谨!
+</body>
+</html>

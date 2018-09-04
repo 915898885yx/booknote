@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>构造继承-使用父类的构造函数来增强子类实例，等于是复制父类的实例属性给子类（不用原型）</title>
+</head>
+<body>
+<script type="text/javascript">
+function Animal (name) {
+	this.name = name || 'Animal'
+	this.sleep = function () {
+		console.log(this.name + ' sleeping')
+	}
+}
+Animal.prototype.eat = function (food) {
+	console.log(this.name + ' eating ' + food)
+}
+
+function Dog () {
+	this.hull = function () {
+		console.log('汪。。。')
+	}
+}
+function Cat (name) {
+	Animal.call(this)
+	Dog.call(this)
+	this.name = name || 'Tom'
+}
+var cat = new Cat()
+console.log(cat.name)
+console.log(cat.sleep())
+console.log(cat.hull())
+console.log(cat instanceof Animal) // false
+console.log(cat instanceof Cat) // true
+
+// 解决了1中，子类实例共享父类引用属性的问题
+// 创建子类实例是，可以向父类传递参数
+// 可以实现多继承（call多个父级对象）
+// 缺点：
+// 实例并不是父类的实例，而是子类的实例
+// 只能继承父类的实例属性和方法，不能继承原型的属性和方法
+// 无法实现函数复用，每个子类都有父类实例函数的副本，影响性能。
+</script>
+</body>
+</html>
