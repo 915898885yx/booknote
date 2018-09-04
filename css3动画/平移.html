@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>平移</title>
+</head>
+<body>
+<div class="button"></div>
+
+<div class="canResize">
+    esdrtgyjikodrtgujiokpsedtgyhij
+</div>
+
+<div class="transition"></div>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+<div class="ball">球</div>
+
+<div class="header-image"></div>
+
+<div class="person"></div>
+</body>
+<style>
+    <style>
+body{
+    padding:100px;
+    background-color: #e4e4e4;
+    /*设置摄像机到物体的视觉距离*/
+    /*perspective: 1000px;*/
+    /*视觉原点的位置 从哪个方向看*/
+    perspective-origin: 10% 50%;
+}
+/*.button{*/
+    /*width: 150px;*/
+    /*height: 44px;*/
+    /*background-color: #ffc132;*/
+    /*把普通元素设置成按钮类型元素*/
+    /*-webkit-appearance: button;*/
+/*}*/
+.button{
+     width: 150px;
+     height: 44px;
+     background-color: #8848ff;
+    /*设置外边线*/
+     outline: 2px solid #e348ff;
+ }
+.button:hover{
+    /*设置外边线向外偏移量*/
+    outline-offset: 10px;
+}
+.canResize{
+    width: 150px;
+    height: 44px;
+    background-color: #ff1713;
+    margin-top: 100px;
+    border: 3px solid #3f4dff;
+    overflow: auto;
+    /*设置用户可拖拽元素改变其大小需配合overflow使用*/
+    resize: both;
+}
+.transition{
+    width: 100px;
+    height: 100px;
+    background-color: #47ffdf;
+    /*过渡 当样式发生改变时触发 转场动画(过渡的样式 过渡效果花费的时间 过渡效果的时间曲线 过渡开始的时间)*/
+    transition: all 3s ease-in 2s;
+    /*transition: background-color 3s,width 2s,height 4s,margin-top 1s;*/
+
+}
+.transition:hover{
+   background-color: #e348ff;
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+    border-radius: 50%;
+}
+
+ul li{
+    width: 100px;
+    height: 100px;
+    background-color: #ff3fa7;
+    float: left;
+    list-style: none;
+    margin-left: 5px;
+    position: relative;
+}
+ul li:first-child{
+    /*使用动画：动画名称 动画完成时间 速度曲线 开始时间 播放次数 是否下次反向播放 是否正在运行或暂停*/
+    animation: jump 2s ease  3 alternate;
+}
+/*创建动画*/
+@keyframes jump {
+    0%{
+        top:-100px;
+        height: 80px;
+        background-color: #734aff;
+
+    }
+    50%{
+        top:-60px;
+        height: 120px;
+        background-color: #8cff31;
+
+    }
+    100%{
+        top:-20px;
+        height: 180px;
+        background-color: #ff2513;
+    }
+}
+.ball{
+    width: 100px;
+    height: 100px;
+    background-color: #ffcc2f;
+    margin-top:250px;
+    animation: move 3s ease alternate;
+    text-align: center;
+    line-height: 100px;
+    /*设置圆角 CSS3新属性*/
+    border-radius: 50%;
+}
+@keyframes move {
+    30%{
+        /*!*设置动画*! 平移 旋转 缩放 倾斜*/
+        transform: translate(100px,-100px) rotate(60deg) scale(5,5) skew(30deg,30deg);
+
+    }
+    60%{
+        transform: translate(150px,-100px) rotate(120deg) scale(2,2) skew(60deg,60deg);
+
+    }
+    100%{
+        transform: translate(200px,-200px) rotate(360deg) scale(4,4) skew(90deg,90deg);
+
+
+    }
+}
+.header-image{
+    width: 200px;
+    height: 200px;
+    background: url("header.png") no-repeat center;
+    transition: transform 2s;
+
+}
+.header-image:hover{
+    transform: skew(10deg,10deg)  rotate(360deg) scale(0.000001,0.000001);
+}
+
+.person{
+    width: 400px;
+    height: 400px;
+    background: url("people.jpg") no-repeat center;
+    background-size: contain;
+    /*运行动画*/
+    animation: rotate3D 3s linear;
+    transform-origin: 50% 50%;
+
+
+}
+/*创建3D动画*/
+@keyframes rotate3D {
+    to{
+        /*3D旋转*/
+        /*transform: rotateX(30deg) rotateY(30deg) rotateZ(30deg);*/
+        /*3D平移*/
+        /*transform:translate3d(30px,50px,-1000px);*/
+        transform:  scaleZ(2) rotateX(90deg);
+    }
+}
+    </style>
+
+</style>
+</html>
