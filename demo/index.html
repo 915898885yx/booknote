@@ -3,13 +3,49 @@
 <head>
 	<title></title>
   <meta charset="utf-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> -->
 	<link rel="stylesheet" type="text/css" href="./index.css">
+
 </head>
 <body>
 <div id="container">
  <!--  <div class="header">this is header</div> -->
- <div class="man" id="man" draggable="true">
-  <img src="./images/man.png" id="img">
+ <div class="bottom">
+  <div class="man" id="man" draggable="true">
+    <img src="./images/man.png" id="img">
+  </div>
+  <img src="./images/nbottom.png" id="bg">
+ </div>
+ <div class="tips tipbg" style="display: none">
+   <div class="tip" style="display: none;">
+    <span class="close" id="close" onclick="close1()"><img src="./images/close.png"></span>
+    <span class="tipContent" style="display: none;">
+     <span class="tipvalue">
+       <!-- &nbsp;&nbsp;&nbsp;&nbsp;呐！做人呢最重要的<br/>是开心啦，花式催婚？<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;你开心就好！<br/>&nbsp;&nbsp;&nbsp;&nbsp;我呢，先去新博新美下<br/>单去了，毕竟实惠最重要~ -->
+       <br>&nbsp;&nbsp;&nbsp;&nbsp;“年轻帅气” “话<br>好” “态度还好” 的安装<br>小哥哥，让你省时，省心
+     </span>
+     <span class="opera">
+       <span class="comeon">进群红包，好礼抢不停</span><br/>
+       <span>分享好友再来一次</span>
+     </span>
+     <span class="imgs">
+      <img src="./images/clickGroup.png" onclick="jionchat()">
+      <img src="./images/share.png" onclick="share()">
+     </span>
+    </span>
+    <span class="choose" style="display: none;">
+      <div class="weichatimg">
+        <img src="./images/weichat.png"><br><span>微信好友</span>
+      </div>
+      <div>
+        <img src="./images/friends.png"><br><span>朋友圈</span>
+      </div>
+    </span>
+    <span class="qrcode" style="display: none;">
+      <img src="./images/qrcode.png" style="margin-bottom:10px;"><br>
+      识别二维码进入微信群
+    </span>
+   </div>
  </div>
 </div>
 </body>
