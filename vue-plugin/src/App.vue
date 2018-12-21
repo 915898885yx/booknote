@@ -6,10 +6,15 @@
 </template>
 
 <script>
+import mainSkeleton from './components/skeleton/main.skeleton.vue'
 export default {
   name: 'App',
+  components: {
+    mainSkeleton
+  },
   data () {
     return {
+      init: false
     }
   },
   created () {

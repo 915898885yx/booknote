@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+</head>
+<body>
+  <div class="container">
+    <div contentEditable="true" class="inputText"></div>
+    <div class="okgo" onclick="createContent()">确定</div>
+  </div>
+  <div class="marqueeBox" style="display: none;" onclick="closeScroll()">
+    <marquee direction="up" scrolldelay="10" scrollamount="50" style="width:100vw;height:100vh;">
+      <span style="color:#f00;" class="marqueeContent">
+      </span>
+    </marquee>
+  </div>
+</body>
+<script>
+  document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+  let spanBox = document.getElementsByClassName('marqueeContent')[0]
+  let hiddenBox = document.getElementsByClassName('marqueeBox')[0]
+  function createContent () {
+    let oText = document.getElementsByClassName('inputText')[0].innerHTML.split('')
+    hiddenBox.style.display = "block"
+    for (let i = 0; i < oText.length; i++) {
+      if (oText[i] !== ' ') {
+        let oSpan = document.createElement('span')
+        oSpan.innerHTML = oText[i]
+        oSpan.className = "content"
+        spanBox.appendChild(oSpan)
+      }
+    }
+  }
+  function closeScroll () {
+    // console.log(spanBox.children.length)
+    for (let i = spanBox.children.length - 1; i >= 0; i--) {
+      // spanBox.removeChild(spanBox.children[i])
+      spanBox.children[i].remove()
+    }
+    hiddenBox.style.display = "none"
+  }
+</script>
+<style>
+*{
+  margin:0;
+  padding:0;
+}
+body{
+  background-image: url('./1544083900572.jpg');
+  background-size: cover;
+  overflow: hidden;
+}
+.container{
+  width:100vw;
+  height:100vh;
+  text-align: center;
+}
+.inputText{
+  width:6rem;
+  min-height:1.2rem;
+  max-height: 3.6rem;
+  overflow: scroll;
+  line-height: 1.2rem;
+  text-align: center;
+  margin:2rem auto 0 auto;
+  font-size: 0.8rem;
+  background-color:rgba(255, 255, 255, 0.7);
+}
+.okgo{
+  width:6rem;
+  height:1rem;
+  background: orange;
+  text-align: center;
+  line-height: 1rem;
+  position: absolute;
+  bottom:2rem;
+  left:50%;
+  margin-left:-3rem;
+  color:#fff;
+  font-size:0.6rem;
+  border-radius: 10%;
+}
+.marqueeBox{
+  position: absolute;
+  top:0;
+  height:100vh;
+  width:100vw;
+  background: #000;
+}
+.marqueeContent{
+  display: inline-block;
+  /*background:#fff;*/
+/*  height:100vh;
+  width:100vw;*/
+  font-size:4rem;
+  /*transform:rotate(90deg);*/
+}
+.content{
+  display: inline-block;
+  text-align: center;
+  width:100vw;
+  transform:rotate(90deg);
+}
+</style>
+</html>

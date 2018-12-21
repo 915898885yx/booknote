@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/router.css">
+    <script src="./js/router.js"></script>
+</head>
+<body>
+    <header>这里是头部</header>
+    <nav>
+        <li><a href="#/">aluoa</a></li>
+        <li><a href="#/01">huanying2015</a></li>
+        <li><a href="#/02">一代天骄</a></li>
+        <li><a href="#/03">霸王</a></li>
+        <li><a href="#/04">秦始皇</a></li>
+        <li><a href="#/05">释迦摩尼</a></li>
+    </nav>
+    <section>
+        如果想看路由改变效果，请点击左边的链接
+    </section>
+    <div class="clear"></div>
+    <footer>这里是尾部</footer>
+</body>
+</html>
+</body>
+<script>
+window.onload = function(){
+(function(){
+  var Router=function(){
+      this.routes={};
+      this.curUrl='/';
+  };
+   // 对路由的hash值进行监听，如果发生改变，则调用reloadPage()函数
+  Router.prototype.init = function(){
+      // 这里的两个this 是不一样的，需要注意
+      window.addEventListener('hashchange',this.reloadPage.bind(this));
+  };
+  // 调用reloadPage函数，实际上时执行routes[]()函数
+  Router.prototype.reloadPage = function(){
+  	console.log(location.hash, 'hash')
+      this.curUrl = location.hash.substring(1)||'/';
+      this.routes[this.curUrl]();
+  };
+    // 路由配置的规则
+  Router.prototype.map = function(key,callback){
+      this.routes[key] = callback;
+  }
+  window.Router = Router;
+})();
+	var ORouter = new Router();
+	ORouter.init();
+	// 以下为路由配置的设置，形象的当做一个路由与调用函数的映射表也可以
+	ORouter.map('/',function(){
+	    var Osect = document.querySelector('section');
+	    Osect.innerHTML = "欢迎来到火星，这是一次非常的旅行，祝您路途愉快！";
+	});
+	ORouter.map('/01',function(){
+	    var Osect = document.querySelector('section');
+	    Osect.innerHTML = "huanying2015 huanying2015 huanying2015 huanying2015 huanying2015 huanying2015 huanying2015 huanying2015 huanying2015 huanying2015 huanying2015 huanying2015 huanying2015 ";
+	});
+	ORouter.map('/02',function(){
+	    var Osect = document.querySelector('section');
+	    Osect.innerHTML = "hehehehehheeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeheheehehehhehehehhehehehehheeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeheheehehehhehehehhehehehehheeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeheheehehehheheheh";
+	});
+	ORouter.map('/03',function(){
+	    var Osect = document.querySelector('section');
+	    Osect.innerHTML = "nihao  nihao  nihao  nihao  nihao  nihao  nihao  nihao  nihao  nihao  nihao  nihao  nihao  nihao  nihao  nihao  nihao  nihao  nihao  nihao  nihao  nihao  nihao  nihao  ";
+	});
+	ORouter.map('/04',function(){
+	    var Osect = document.querySelector('section');
+	    Osect.innerHTML = "i am fine i am fine i am fine i am fine i am fine i am fine i am fine i am fine i am fine i am fine i am fine i am fine i am fine i am fine i am fine i am fine i am fine ";
+	});
+	ORouter.map('/05',function(){
+    var Osect = document.querySelector('section');
+    Osect.innerHTML = "good night ood night ood night ood night ood night ood night ood night ood night ood night ood night ood night ood night ood night ood night ood night ood night ood night ood night  ";
+	});
+}
+</script>
+<style>
+header,footer{
+    height:5em;
+    background: #cba;
+    text-align: center;
+    line-height: 5em;
+}
+nav{
+    width:20%;
+    height:30em;
+    background: #391;
+    float:left;
+}
+li{
+    height:2em;
+}
+
+section{
+    width:80%;
+    background: #9a1;
+    height:30em;
+    float:right;
+    line-height: 2em;
+    text-align: center;
+}
+.clear{
+    clear:both;
+}
+</style>
+</html>
